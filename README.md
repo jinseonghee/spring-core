@@ -1,2 +1,2 @@
 # spring-core
-spring 핵심기술 : IOC, DI, AOP, PSA 기타
+spring 핵심기술 : IOC, DI, AOP, PSA
