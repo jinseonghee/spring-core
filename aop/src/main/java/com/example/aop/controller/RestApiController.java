@@ -1,6 +1,7 @@
 package com.example.aop.controller;
 
 
+import com.example.aop.annotation.Decode;
 import com.example.aop.annotation.Timer;
 import com.example.aop.dto.User;
 import org.springframework.util.StopWatch;
@@ -13,29 +14,18 @@ public class RestApiController {
     @GetMapping("/get/{id}")
     public String get(@PathVariable Long id, @RequestParam String name) {
 
-        StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
+        System.out.println("get method");
+        System.out.println("get method : " + id);
+        System.out.println("get method : " + name);
 
-        //TODO
-
-//        System.out.println("get method");
-//        System.out.println("get method : " + id);
-//        System.out.println("get method : " + name);
-
-        stopWatch.stop();
-        System.out.println("total time : " + stopWatch.getTotalTimeSeconds());
         return id + " " + name;
     }
 
     @PostMapping("/post")
     public User post(@RequestBody User user) {
 
-        StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
+        System.out.println("post method : " + user);
 
-        stopWatch.stop();
-        System.out.println("total time : " + stopWatch.getTotalTimeSeconds());
-        //System.out.println("post method : " + user);
         return user;
     }
 
@@ -51,5 +41,13 @@ public class RestApiController {
 
         stopWatch.stop();
         System.out.println("total time : " + stopWatch.getTotalTimeSeconds());
+    }
+
+    @Decode
+    @PutMapping("/put")
+    public User put(@RequestBody User user) {
+        System.out.println("put");
+        System.out.println(user);
+        return user;
     }
 }
